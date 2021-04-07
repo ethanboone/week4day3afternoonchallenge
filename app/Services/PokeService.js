@@ -5,13 +5,13 @@ import { pokeApi } from "./AxiosService.js"
 class PokeService {
     async getAllPoke() {
         let res = await pokeApi.get()
-        console.log(res.data.results)
         ProxyState.pokemon = res.data.results.map(p => new Pokemon(p))
-        console.log(ProxyState.pokemon)
     }
 
-    addPoke() {
-        ProxyState.Pokemon = [...ProxyState.Pokemon, new Pokemon({ title: Math.random() })]
+    async getPoke(p) {
+        let res = await pokeApi.get(p)
+        console.log(res)
+        ProxyState.selected = new Pokemon(res.data)
     }
 }
 

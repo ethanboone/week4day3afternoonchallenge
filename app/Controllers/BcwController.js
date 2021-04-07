@@ -2,7 +2,10 @@ import { ProxyState } from "../AppState.js";
 import { bcwService } from "../Services/BcwService.js";
 
 function _draw() {
-
+    let mine = document.getElementById('mine')
+    let template = ''
+    ProxyState.myPokemon.forEach(p => template += p.Template)
+    mine.innerHTML = template
 }
 
 export default class PokeController {
