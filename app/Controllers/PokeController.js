@@ -2,7 +2,10 @@ import { ProxyState } from "../AppState.js";
 import { pokeService } from "../Services/PokeService.js";
 
 function _draw() {
-
+    let all = document.getElementById('all')
+    let template = ''
+    ProxyState.pokemon.forEach(p => template += p.Template)
+    all.innerHTML = template
 }
 
 export default class PokeController {
@@ -19,4 +22,5 @@ export default class PokeController {
             console.log(error)
         }
     }
+
 }
