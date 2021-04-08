@@ -11,7 +11,7 @@ class PokeService {
     async getPoke(p) {
         let res = await pokeApi.get(p)
         console.log(res)
-        ProxyState.selected = new Pokemon(res.data)
+        ProxyState.selected = new Pokemon(res)
     }
 }
 
